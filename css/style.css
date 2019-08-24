@@ -1,75 +1,317 @@
-/* style.css for portfolio */
-@import url("https://fonts.googleapis.com/css?family=Cinzel:400,700|Montserrat");
+/* style.css for portfolio project */
+@import url("https://fonts.googleapis.com/css?family=Cinzel:400,700|Montserrat:400,700");
 
+/* =-=-=-=-=-=-=-=-=-=-= GENERAL RULES =-=-=-=-=-= */
 * {
   box-sizing: border-box;
+  padding: 0;
   margin: 0;
-  padding: 0;
-  font-family: "Montserrat";
 }
 
-h1 {
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Montserrat;
+  line-height: 1.2;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+}
+
+button:active,
+button:focus {
+  outline: none;
+}
+
+.center {
   text-align: center;
-  margin: 15px;
-  color: #333;
-  text-shadow: 5px 8px 10px #222;
-  font-family: "Cinzel";
+  margin: auto;
 }
 
-/* NAVIGATION =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
-.main-nav ul {
-  display: grid;
-  padding: 0;
+/*  =-=-=-=-=-= HAMBURGER RULES =-=-=-=-=-=-=-=-=-=-= */
+.menu-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 4;
+}
+
+.menu-wrap .toggle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 4;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  opacity: 0;
+}
+
+.menu-wrap .hamburger {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  width: 60px;
+  height: 60px;
+  padding: 1rem;
+  background-color: rgba(51, 51, 51, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* hamburger - meat */
+.menu-wrap .hamburger > div {
+  position: relative;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+}
+
+/*  Hamburger - Bun */
+.menu-wrap .hamburger > div::before,
+.menu-wrap .hamburger > div::after {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  top: -10px;
+  width: 100%;
+  height: 2px;
+  background: inherit;
+}
+
+.menu-wrap .hamburger > div:after {
+  top: 10px;
+}
+
+/* animate */
+.menu-wrap .toggle:checked + .hamburger > div {
+  transform: rotate(135deg);
+}
+
+.menu-wrap .toggle:checked + .hamburger > div::before,
+.menu-wrap .toggle:checked + .hamburger > div::after {
+  top: 0;
+  transform: rotate(90deg);
+}
+
+.menu-wrap .toggle:checked:hover + .hamburger > div {
+  transform: rotate(225deg);
+}
+
+.menu-wrap .toggle:checked ~ .menu {
+  visibility: visible;
+}
+
+.menu-wrap .toggle:checked ~ .menu > div {
+  transform: scale(1);
+  transition-duration: 0.75s;
+}
+
+.menu-wrap .toggle:checked ~ .menu > div > div {
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+.menu-wrap .menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-wrap .menu > div {
+  background-color: rgba(24, 39, 51, 0.85);
+  border-radius: 50%;
+  width: 200vw;
+  height: 200vw;
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0);
+  transition: all 0.4s ease;
+}
+
+.menu-wrap .menu > div > div {
+  text-align: center;
+  max-width: 90vw;
+  max-height: 100vh;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.menu-wrap .menu > div > div > ul > li {
   list-style: none;
-  grid-template-columns: repeat(4, 1fr);
-  margin: 5px;
-  margin-bottom: 15px;
-  box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+  color: #fff;
+  font-size: 1.5rem;
+  padding: 1rem;
 }
 
-.main-nav a {
-  background: #f4f4f4;
-  display: block;
+.menu-wrap .menu > div > div > ul > li > a {
+  color: inherit;
   text-decoration: none;
-  padding: 0.8em;
+  transition: color 0.4s ease;
+}
+
+.menu-wrap .menu > div > div > ul > li > button {
+  font-size: 1.5rem;
+  color: #fff;
+  background-color: rgba(24, 39, 51, 0);
+  border: none;
+  cursor: pointer;
+}
+
+/* =-=-=-=-=-=-=-= BLUR RULES =-=-=-=-=-=-=-=-=-=-=-= */
+.background::after {
+  display: block;
+  content: "";
+  height: 100vh;
+  width: 100%;
+  background-image: url("../img/halfhat-realjhoo.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: -50px 0;
+  filter: blur(5px);
+  transition: all 1s;
+}
+
+.background:hover::after {
+  filter: blur(0);
+}
+
+.background:hover .marque {
+  filter: blur(1px);
+}
+
+.marque {
+  position: absolute;
+  /* FIX z-index */
+  z-index: 1;
+  width: 300px;
+  height: 350px;
+  top: 15%;
+  left: 75%;
+  margin-top: 105px;
+  margin-left: -145px;
   text-align: center;
+}
+
+.marque .logo {
+  height: 180px;
+  width: 180px;
+}
+
+.marque .title {
+  font-size: 2.2rem;
+  margin-top: 1rem;
+}
+.marque .text {
+  line-height: 1.7rem;
+  margin-top: 1rem;
+}
+
+/* =-=-=-=-=-=-=-=-=-=-= LINK BAR RULES =-=-=-=-=-=-=-=-=-= */
+.link-bar h3 {
+  font-family: cinzel;
+  font-weight: 700;
+  padding-top: 12px;
+}
+
+button > h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #f4f4f4;
+}
+
+.link-bar a {
+  text-decoration: none;
+  color: #f4f4f4;
+}
+
+.link-bar button {
+  color: #f4f4f4;
+  background-color: #333;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.contact-icon {
+  font-size: 3rem;
+}
+
+.container {
+  max-width: 960px;
+  margin: auto;
+  overflow: hidden;
+  padding: 4rem 1rem;
+}
+
+.fas:hover {
+  opacity: 0.3;
+  transition: all 0.5s;
+}
+
+.link-items {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.bg-dark {
+  background-color: #333;
+  color: #f4f4f4;
+}
+
+.bg-light {
+  background-color: #f4f4f4;
   color: #333;
-  text-transform: uppercase;
-  font-size: 1em;
 }
 
-.main-nav a:hover {
-  color: #ddd;
-  background-color: #333;
-}
-
-.active a {
-  color: #ddd;
-  background-color: #333;
-  cursor: default;
-}
-
-/* OVERLAY EFFECTS =-=-=-=-=-=-=-=-=-=-=-=-=-==-=-=-=-=-=-=-=-=-=- */
+/* =-=-=-=-=-=-=-= PORTFOLIO RULES =-=-=-=-=-=-=-=-=-= */
 
 .portfolio-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-gap: 12px;
   justify-content: center;
-  margin-right: 1em;
-  margin-left: 1em;
-}
-
-img {
-  width: 100%;
-  height: 100%;
+  padding: 12px;
+  border-radius: 6px;
+  margin-right: 1rem;
+  margin-left: 1rem;
 }
 
 .box {
   position: relative;
   overflow: hidden;
   box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
-  border-radius: 5px;
+  border-radius: 6px;
+}
+
+.box img {
+  width: 100%;
+  height: 100%;
+}
+
+.box:hover .project-title {
+  opacity: 1;
+}
+
+.box:hover .project-image img {
+  filter: blur(2px);
 }
 
 .project-image {
@@ -78,34 +320,31 @@ img {
 }
 
 .project-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* this must match height & width from img selector */
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  /* +_+_+ ADJUST THIS +_+_+_+ */
+  font-size: 1.5rem;
+  /* font-weight: 700; */
+  /* FUNCTIONAL? */
+  text-decoration: none;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  font-size: 1.5em;
-  font-weight: bold;
-  color: #fff;
-  background: rgba(90, 0, 10, 0.4);
-  position: absolute;
-  top: 0;
-  left: 0;
-  /* This should match the height & width
-   from the img selector */
-  width: 100%;
-  height: 100%;
-  text-decoration: none;
+  background-color: rgba(90, 0, 10, 0.4);
   opacity: 0;
   transition: opacity 0.5s;
   z-index: 1;
 }
 
 .project-subtitle {
-  font-size: 0.8em;
-  margin-bottom: 0.7em;
-}
-
-.box:hover .project-title {
-  opacity: 1;
+  font-size: 0.8rem;
+  margin-bottom: 0.7rem;
 }
 
 .project-image img {
@@ -114,19 +353,15 @@ img {
   transform: scale(1.1);
 }
 
-.box:hover .project-image img {
-  filter: blur(3px);
-}
-
 .button {
-  font-size: 0.7em;
-  color: #fff;
-  text-transform: uppercase;
-  text-decoration: none;
-  background-color: rgba(47, 116, 155, 0.6);
+  background-color: rgba(47, 116, 155, 0.7);
   box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+  border-radius: 6px;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: #fff;
+  text-decoration: none;
   padding: 5px;
-  border-radius: 5px;
   margin: 5px;
 }
 
@@ -136,10 +371,21 @@ img {
 }
 
 .grade {
-  font-size: 0.5em;
+  font-size: 0.5rem;
 }
 
-/*  =-=-=-=-=-=-=-=-=-=-=-=-=-= MODAL CONTACT =-=-=-=-=-=-=-=-=-=-= */
+/*  =-=-=-=-=-=-=-= ABOUT ME RULES =-=-=-=-=-=-=-=-=-= */
+.link-about {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* =-=-=-=-=-=-=-=-= EXPERIENCE RULES =-=-=-=-=-=-=-=-= */
+.experience {
+  padding: 12px;
+}
+/* =-=-=-=-=-=-=-= MODAL CARD RULES =-=-=-=-=-=-=-=-=-= */
 .modal-mask {
   position: fixed;
   display: none;
@@ -149,7 +395,7 @@ img {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6);
-  z-index: 2;
+  z-index: 3;
 }
 
 .modal-card {
@@ -162,14 +408,6 @@ img {
   border: 2px solid #e4e4e4;
   border-radius: 6px;
 }
-
-/* .modal-card h1 {
-  font-family: cinzel;
-} */
-
-/* .modal-card a {
-  text-decoration: none;
-} */
 
 .modal-card p {
   font-size: 1rem;
@@ -203,17 +441,9 @@ img {
 }
 
 .icon {
-  /* float: both; */
   width: 2rem;
   margin: 0.5rem 0.9rem 0 0.9rem;
 }
-
-/* .icon::after {
-  overflow: auto;
-  content: "";
-  clear: both;
-  display: table;
-} */
 
 .socials a {
   font-family: cinzel;
@@ -223,13 +453,7 @@ img {
   margin: 0 0.6rem 0 0.6rem;
 }
 
-/* =-=-=-=-=-=-= END MODAL CONTACT =-=-=-=-=-=-=-=-=-= */
-
-/* FOOTER =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+/* =-=-=-=-=-=-=-= FOOTER RULES =-=-=-=-=-=-=-=-=-=-=-= */
 footer {
-  text-align: center;
-  color: #f4f4f4;
-  background-color: #333;
-  padding: 2em;
-  margin-top: 2em;
+  padding: 2.2rem;
 }
