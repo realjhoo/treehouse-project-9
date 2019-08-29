@@ -3,10 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-    />
     <link rel="stylesheet" href="css/style.css" />
     <title>Jerry L Hoover - Front End Developer</title>
   </head>
@@ -54,7 +50,7 @@
       <div class="container link-items center">
         <div>
           <a href="index.html#portfolio">
-            <i class="fas fa-desktop fa-3x"></i>
+            <img src="/img/portfolio.svg" alt="Portfolio" class="link-icon" />
             <h3 id="x">My Portfolio</h3>
           </a>
           <p>
@@ -64,7 +60,7 @@
 
         <div>
           <a href="index.html#about-me">
-            <i class="fas fa-code fa-3x"></i>
+            <img src="/img/about.svg" alt="About Me" class="link-icon" />
             <h3>About Me</h3>
           </a>
           <p>
@@ -74,7 +70,7 @@
 
         <div>
           <button class="contact">
-            <i class="fas fa-address-book fa-3x contact-icon"></i>
+            <img src="/img/contact.svg" alt="Contact Me" class="link-icon" />
             <h3>Contact Me</h3>
           </button>
           <p>
@@ -326,16 +322,18 @@
     <section class="container about bg-dark" id="about-me">
       <div class="link-about">
         <div class="center">
-          <i class="fas fa-laptop-code fa-10x"></i>
+          <img src="/img/about.svg" alt="About Me" class="about-icon" />
         </div>
         <div>
           <h3 id="about">About Me</h3>
-          <p>
+          <p class="about-text">
             I build eye-catching and functional websites. I have a passion for
             teaching and creating things that both work and inspire. This is the
             focus I will bring to your website -- a love of elegant design using
-            the latest tech.
+            the latest tech.<br /><br />
           </p>
+          <!-- ******  RESUME PDF GOES HERE -->
+          <a href="img/project-6.png" class="btn-resume" download>Résumé</a>
         </div>
       </div>
     </section>
@@ -428,7 +426,7 @@
     <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-= FOOTER =-=-=-=-=-=-=-=-=-=-=-=-= -->
     <footer class="center bg-dark">
       <p>&copy; 2019 Jerry L Hoover</p>
-      <a href="#" class="back-to-top">&uparrow;</a>
+      <a href="#" class="back-to-top">&#8593;</a>
     </footer>
     <script src="js/app.js"></script>
   </body>

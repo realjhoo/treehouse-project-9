@@ -176,7 +176,7 @@ button:focus {
   font-family: Montserrat;
 }
 
-/* =-=-=-=-=-=-=-= PAGE RULES =-=-=-=-=-=-=-=-=-=-=-= */
+/* =-=-=-=-=-=-=-= MARQUEE & BACKGROUND RULES =-=-=-=-=-=-=-=-=-= */
 
 .background0::after,
 .background1::after,
@@ -281,7 +281,11 @@ button > h3 {
   overflow: hidden;
 }
 
-.fas:hover {
+.link-icon {
+  width: 5rem;
+}
+
+.link-icon:hover {
   transition: all 0.5s;
   opacity: 0.3;
 }
@@ -397,6 +401,26 @@ button > h3 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 20px;
+}
+
+.about-icon {
+  width: 9rem;
+}
+
+/* OBVIUSLY THIS NEEDS TO BR STYLED */
+.btn-resume {
+  color: #333;
+  padding: 0.8rem;
+  background-color: #fff;
+  border-radius: 6px;
+  font-weight: 700;
+  font-family: Montserrat;
+  text-decoration: none;
+  transition: all 1s ease-in-out;
+}
+
+.btn-resume:hover {
+  background-color: #f4f4f4;
 }
 
 /* =-=-=-=-=-=-=-=-= EXPERIENCE RULES =-=-=-=-=-=-=-=-= */
