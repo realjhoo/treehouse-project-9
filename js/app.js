@@ -1,4 +1,6 @@
-// javascript for portfolio and services
+// Copyright (c) 2019 Jerry L Hoover
+// All rights reserved
+// javascriot for realjhoo
 
 function hamburger_listener() {
   document.addEventListener("click", event => {
@@ -52,7 +54,7 @@ function back_to_top() {
 }
 
 function main() {
-  random_background();
+  // random_background(); *** FEATURE TEMP DISABLED ***
   hamburger_listener();
   close_btn_listener();
   contact_listener();

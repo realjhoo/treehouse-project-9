@@ -1,22 +1,225 @@
 
-IDEA:
-
-Combine the following pages
-
-1. Hamburger Menu Project
-2. RealJHoo blur background
-3. Portfolio
-4. About (halfhat pic in bg with overlay)
-  About section includes Langs and Techs
-  HTML, CSS, JS, etc...
-5. Contact (as popup)
-6. Contact socials can be in footer
+Needs:
 
 
-
-Needsw at least 2 javascript functions for exceeds
-IDEAS:
-add a button to project that pops up an description of what was involved
-replace current buttons with javascript buttons
+Needs at least 2 javascript functions for exceeds
+  IDEAS:
+  add a button to project that pops up an description of what was involved
+  replace current buttons with javascript buttons
 
 HTML, CSS & JS Validate
+
+
+************************************************************
+original color palette
+/* Possible variable
+primary_color #333
+menu_color_tranparent rgba(51, 51, 51, 0.6)
+menu_button_fix rgba(24, 39, 51, 0)
+secondary_color #f4f4f4
+
+To restore blur effect
+restore:
+/* #background:hover::after,
+.background0:hover::after,
+.background1:hover::after,
+.background2:hover::after {
+  filter: blur(0);
+}
+
+in #background::after - resore blur to 5px
+
+#background:hover,
+.background0:hover .marquee,
+.background1:hover .marquee,
+.background2:hover .marquee {
+  filter: blur(1px);
+} */
+
+REMOVE
+temp .toggle rule
+
+HAMBURGER RULES
+/*  =-=-=-=-=-= HAMBURGER RULES =-=-=-=-=-=-=-=-=-=-= */
+/* .menu-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 4;
+} */
+
+/* .menu-wrap .toggle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 4;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+} */
+
+/* .menu-wrap .hamburger {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  background-color: var(--menu-bg-color);
+  padding: 1rem;
+  width: 60px;
+  height: 60px;
+} */
+
+/* hamburger - meat */
+/* .menu-wrap .hamburger > div {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+  background-color: var(--text-color);
+  width: 100%;
+  height: 2px;
+} */
+
+/*  Hamburger - bun */
+/* .menu-wrap .hamburger > div::before,
+.menu-wrap .hamburger > div::after {
+  position: absolute;
+  top: -10px;
+  z-index: 3;
+  background: inherit;
+  width: 100%;
+  height: 2px;
+  content: "";
+} */
+
+/* .menu-wrap .hamburger > div:after {
+  top: 10px;
+} */
+
+/* animate */
+/* .menu-wrap .toggle:checked + .hamburger > div {
+  transform: rotate(135deg);
+} */
+
+/* .menu-wrap .toggle:checked + .hamburger > div::before,
+.menu-wrap .toggle:checked + .hamburger > div::after {
+  top: 0;
+  transform: rotate(90deg);
+} */
+
+/* .menu-wrap .toggle:checked:hover + .hamburger > div {
+  transform: rotate(225deg);
+} */
+
+/* .menu-wrap .toggle:checked ~ .menu {
+  visibility: visible;
+} */
+
+/* .menu-wrap .toggle:checked ~ .menu > div {
+  transform: scale(1);
+  transition-duration: 0.75s;
+} */
+
+/* .menu-wrap .toggle:checked ~ .menu > div > div {
+  transition: opacity 0.4s ease;
+  opacity: 1;
+} */
+
+/* .menu-wrap .menu {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+} */
+
+/* .menu-wrap .menu > div {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0);
+  transition: all 0.4s ease;
+  border-radius: 50%;
+  background-color: var(--menu-bg-color);
+  width: 200vw;
+  height: 200vh;
+} */
+
+/* .menu-wrap .menu > div > div {
+  transition: opacity 0.4s ease;
+  opacity: 0;
+  max-width: 90vw;
+  max-height: 100vh;
+  text-align: center;
+} */
+
+/* .menu-wrap .menu > div > div > ul > li {
+  padding: 1rem;
+  list-style: none;
+  color: var(--text-color);
+  font-size: 1.5rem;
+  text-shadow: 2px 2px #000;
+  transition: transition 1s ease-in-out;
+} */
+
+/* .menu-wrap .menu > div > div > ul > li > a {
+  transition: color 0.4s ease;
+  text-decoration: none;
+  color: inherit;
+} */
+
+/* .menu-wrap .menu > div > div > ul > li > button {
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
+  color: var(--text-color);
+  font-size: 1.5rem;
+  text-shadow: 2px 2px #000;
+  font-family: Montserrat;
+  transition: transform 0.5s ease-in-out;
+} */
+
+/* .menu-wrap .menu > div > div > ul > li:hover,
+.menu-wrap .menu > div > div > ul > li > a:hover,
+.menu-wrap .menu > div > div > ul > li > button:hover {
+  transition: all 0.5s;
+  opacity: 0.8;
+} */
+
+HAMBURGER MARKUP
+<!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-= HAMBURGER =-=-=-=-=TEMP DISABLED =-=-= -->
+    <!-- <section class="menu-wrap">
+      <input type="checkbox" class="toggle" />
+      <div class="hamburger"><div></div></div>
+      <div class="menu">
+        <div>
+          <div>
+            <ul>
+              <li><a href="#" class="menu-home">Home</a></li>
+              <li>
+                <a href="index.html#portfolio" class="menu-portfolio"
+                  >Portfolio</a
+                >
+              </li>
+              <li>
+                <a href="index.html#about-me" class="menu-about">About Me</a>
+              </li>
+              <li>
+                <button class="contact">Contact</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section> -->

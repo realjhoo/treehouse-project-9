@@ -1,6 +1,14 @@
 /* style.css for portfolio project */
 @import url("https://fonts.googleapis.com/css?family=Cinzel:400,700|Montserrat:400,700");
 
+/* =-=-=-=-=-=-=-=-=-=-= VARIABLES =-=-=-=-=-=-=-= */
+:root {
+  --main-color: #4e6e7d;
+  --text-color: #ce9e62;
+  --menu-bg-color: rgba(78, 110, 125, 0.6);
+  --project-mask: rgba(78, 110, 125, 0.4);
+}
+
 /* =-=-=-=-=-=-=-=-=-=-= GENERAL RULES =-=-=-=-=-= */
 * {
   box-sizing: border-box;
@@ -13,9 +21,9 @@ html {
 }
 
 body {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: var(--main-color);
   line-height: 1.2;
-  color: #fff;
+  color: var(--text-color);
   font-family: Montserrat;
   overflow-x: hidden;
 }
@@ -30,158 +38,18 @@ button:focus {
   text-align: center;
 }
 
-/*  =-=-=-=-=-= HAMBURGER RULES =-=-=-=-=-=-=-=-=-=-= */
-.menu-wrap {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 4;
-}
-
-.menu-wrap .toggle {
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  z-index: 4;
-  cursor: pointer;
-  width: 50px;
-  height: 50px;
-}
-
-.menu-wrap .hamburger {
-  display: flex;
-  position: absolute;
-  top: 0;
-  left: 0;
-  align-items: center;
-  justify-content: center;
-  z-index: 3;
-  background-color: rgba(51, 51, 51, 0.6);
-  padding: 1rem;
-  width: 60px;
-  height: 60px;
-}
-
-/* hamburger - meat */
-.menu-wrap .hamburger > div {
-  display: flex;
-  position: relative;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.4s ease;
-  background-color: #fff;
-  width: 100%;
-  height: 2px;
-}
-
-/*  Hamburger - bun */
-.menu-wrap .hamburger > div::before,
-.menu-wrap .hamburger > div::after {
-  position: absolute;
-  top: -10px;
-  z-index: 3;
-  background: inherit;
-  width: 100%;
-  height: 2px;
-  content: "";
-}
-
-.menu-wrap .hamburger > div:after {
-  top: 10px;
-}
-
-/* animate */
-.menu-wrap .toggle:checked + .hamburger > div {
-  transform: rotate(135deg);
-}
-
-.menu-wrap .toggle:checked + .hamburger > div::before,
-.menu-wrap .toggle:checked + .hamburger > div::after {
-  top: 0;
-  transform: rotate(90deg);
-}
-
-.menu-wrap .toggle:checked:hover + .hamburger > div {
-  transform: rotate(225deg);
-}
-
-.menu-wrap .toggle:checked ~ .menu {
-  visibility: visible;
-}
-
-.menu-wrap .toggle:checked ~ .menu > div {
-  transform: scale(1);
-  transition-duration: 0.75s;
-}
-
-.menu-wrap .toggle:checked ~ .menu > div > div {
-  transition: opacity 0.4s ease;
-  opacity: 1;
-}
-
-.menu-wrap .menu {
-  display: flex;
-  position: fixed;
-  top: 0;
-  left: 0;
-  align-items: center;
-  justify-content: center;
-  visibility: hidden;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-.menu-wrap .menu > div {
-  display: flex;
-  flex: none;
-  align-items: center;
-  justify-content: center;
-  transform: scale(0);
-  transition: all 0.4s ease;
-  border-radius: 50%;
-  background-color: rgba(24, 39, 51, 0.85);
-  width: 200vw;
-  height: 200vh;
-}
-
-.menu-wrap .menu > div > div {
-  transition: opacity 0.4s ease;
-  opacity: 0;
-  max-width: 90vw;
-  max-height: 100vh;
-  text-align: center;
-}
-
-.menu-wrap .menu > div > div > ul > li {
-  padding: 1rem;
-  list-style: none;
-  color: #fff;
-  font-size: 1.5rem;
-}
-
-.menu-wrap .menu > div > div > ul > li > a {
-  transition: color 0.4s ease;
-  text-decoration: none;
-  color: inherit;
-}
-
-.menu-wrap .menu > div > div > ul > li > button {
-  border: none;
-  background-color: rgba(24, 39, 51, 0);
-  cursor: pointer;
-  color: #fff;
-  font-size: 1.5rem;
-  font-family: Montserrat;
+/* HAMBURGER RULES GO HERE */
+/* TEMP */
+.toggle {
+  display: none;
 }
 
 /* =-=-=-=-=-=-=-= MARQUEE & BACKGROUND RULES =-=-=-=-=-=-=-=-=-= */
-
+#background::after,
 .background0::after,
 .background1::after,
 .background2::after {
-  filter: blur(5px);
+  filter: blur(3px);
   display: block;
   transition: all 0.8s;
   background-position: -50px 0;
@@ -192,8 +60,9 @@ button:focus {
   content: "";
 }
 
+#background::after,
 .background0::after {
-  background-image: url("../img/halfhat-realjhoo.png");
+  background-image: url("../img/halfhat2.png");
 }
 
 .background1::after {
@@ -202,18 +71,6 @@ button:focus {
 
 .background2::after {
   background-image: url("../img/shades-and-code.png");
-}
-
-.background0:hover::after,
-.background1:hover::after,
-.background2:hover::after {
-  filter: blur(0);
-}
-
-.background0:hover .marquee,
-.background1:hover .marquee,
-.background2:hover .marquee {
-  filter: blur(1px);
 }
 
 .marquee {
@@ -226,11 +83,13 @@ button:focus {
   width: 300px;
   height: 350px;
   text-align: center;
+  text-shadow: 2px 2px #000;
 }
 
 .marquee .logo {
   width: 75px;
   height: 75px;
+  filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.7));
 }
 
 .marquee .title {
@@ -252,22 +111,21 @@ button:focus {
 }
 
 button > h3 {
-  color: #f4f4f4;
+  color: var(--text-color);
   font-size: 1.2rem;
   font-weight: 700;
 }
 
 .link-bar a {
   text-decoration: none;
-  color: #f4f4f4;
+  color: var(--text-color);
 }
 
 .link-bar button {
   outline: none;
   border: none;
-  background-color: #333;
+  background-color: var(--main-color);
   cursor: pointer;
-  color: #f4f4f4;
 }
 
 .contact-icon {
@@ -285,7 +143,10 @@ button > h3 {
   width: 5rem;
 }
 
-.link-icon:hover {
+.link-icon:hover ~ h3,
+.link-icon:hover,
+.link-item:hover,
+.link-bar h3:hover {
   transition: all 0.5s;
   opacity: 0.3;
 }
@@ -297,13 +158,13 @@ button > h3 {
 }
 
 .bg-dark {
-  background-color: #333;
-  color: #f4f4f4;
+  background-color: var(--main-color);
+  color: var(--text-color);
 }
 
 .bg-light {
-  background-color: #f4f4f4;
-  color: #333;
+  background-color: var(--text-color);
+  color: var(--main-color);
 }
 
 /* =-=-=-=-=-=-=-= PORTFOLIO RULES =-=-=-=-=-=-=-=-=-= */
@@ -321,7 +182,7 @@ button > h3 {
 .box {
   position: relative;
   border-radius: 6px;
-  box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+  box-shadow: 1px 1px 1px 1px #000;
   overflow: hidden;
 }
 
@@ -355,7 +216,7 @@ button > h3 {
   transition: opacity 0.5s;
   opacity: 0;
   z-index: 1;
-  background-color: rgba(90, 0, 10, 0.4);
+  background-color: var(--project-mask);
   /* this must match height & width from img selector */
   width: 100%;
   height: 100%;
@@ -379,17 +240,17 @@ button > h3 {
   margin: 5px;
   border-radius: 6px;
   box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
-  background-color: rgba(47, 116, 155, 0.7);
+  background-color: var(--text-color);
   padding: 5px;
   text-transform: uppercase;
   text-decoration: none;
-  color: #fff;
+  color: #f4f4f4;
   font-size: 0.7rem;
 }
 
 .button:hover {
   transition: all 0.4s;
-  background-color: rgba(47, 116, 155, 1);
+  background-color: var(--main-color);
 }
 
 .grade {
@@ -407,20 +268,19 @@ button > h3 {
   width: 9rem;
 }
 
-/* OBVIUSLY THIS NEEDS TO BR STYLED */
 .btn-resume {
-  color: #333;
+  color: var(--main-color);
   padding: 0.8rem;
-  background-color: #fff;
+  background-color: var(--text-color);
   border-radius: 6px;
   font-weight: 700;
   font-family: Montserrat;
   text-decoration: none;
-  transition: all 1s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .btn-resume:hover {
-  background-color: #f4f4f4;
+  opacity: 0.5;
 }
 
 /* =-=-=-=-=-=-=-=-= EXPERIENCE RULES =-=-=-=-=-=-=-=-= */
@@ -508,12 +368,13 @@ footer {
   bottom: 0.7rem;
   right: 1.1rem;
   font-size: 4rem;
-  color: #fff;
-  background-color: rgba(51, 51, 51, 0.6);
+  color: var(--text-color);
+  background-color: var(--menu-bg-color);
   z-index: 2;
   text-decoration: none;
   border-radius: 10px;
   padding: 0 8px;
+  text-shadow: 2px 2px #000;
 }
 
 /*  =-=-=-=-=-=-=-=-=-=-=-=-=-=-= MEDIA QUERIES =-=-=-=-=-=-=-=-=-=-=-=-= */
@@ -550,7 +411,7 @@ footer {
   }
 
   .container > div {
-    border-bottom: #f4f4f4 dashed 1px;
+    border-bottom: var(--text-color) dashed 1px;
     padding: 1.2rem 1rem;
   }
 }

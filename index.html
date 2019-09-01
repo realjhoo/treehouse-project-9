@@ -8,36 +8,14 @@
   </head>
 
   <body>
-    <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-= HAMBURGER =-=-=-=-=-=-=-=-=-=-=-=-= -->
-    <section class="menu-wrap">
-      <input type="checkbox" class="toggle" />
-      <div class="hamburger"><div></div></div>
-      <div class="menu">
-        <div>
-          <div>
-            <ul>
-              <li><a href="#" class="menu-home">Home</a></li>
-              <li>
-                <a href="index.html#portfolio" class="menu-portfolio"
-                  >Portfolio</a
-                >
-              </li>
-              <li>
-                <a href="index.html#about-me" class="menu-about">About Me</a>
-              </li>
-              <li>
-                <button class="contact">Contact</button>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- HAMBURGER MARKUP GOES HERE -->
+    <!-- TEMP INPUT CHECKBOX -->
+    <input type="checkbox" class="toggle" />
 
     <!-- =-=-=-=-=-=-=-=-=-=-=-MARQUEE BACKGROUND =-=-=-=-=-=-=-=-=-=-=-= -->
     <header id="background">
       <div class="marquee">
-        <img src="img/jlh-logo.png" alt="Jerry L Hoover" class="logo" />
+        <img src="img/jlh-logo.svg" alt="Jerry L Hoover" class="logo" />
         <div class="title">Jerry L Hoover - Web Developer</div>
         <div class="text">
           Developer. Teacher. Creator.
@@ -49,7 +27,7 @@
     <section class="link-bar">
       <div class="container link-items center">
         <div>
-          <a href="index.html#portfolio">
+          <a class="link-item" href="index.html#portfolio">
             <img src="/img/portfolio.svg" alt="Portfolio" class="link-icon" />
             <h3 id="x">My Portfolio</h3>
           </a>
@@ -59,7 +37,7 @@
         </div>
 
         <div>
-          <a href="index.html#about-me">
+          <a class="link-item" href="index.html#about-me">
             <img src="/img/about.svg" alt="About Me" class="link-icon" />
             <h3>About Me</h3>
           </a>
@@ -69,19 +47,19 @@
         </div>
 
         <div>
-          <button class="contact">
+          <button class="contact link-item">
             <img src="/img/contact.svg" alt="Contact Me" class="link-icon" />
             <h3>Contact Me</h3>
           </button>
           <p>
-            Want to learn more about how I can help you? I'm just an email away!
+            Questions? Reach out!
           </p>
         </div>
       </div>
     </section>
 
     <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-= PORTFOLIO =-=-=-=-=-=-=-=-=-=-=-=-= -->
-    <section class="portfolio-container bg-light" id="portfolio">
+    <section class="portfolio-container " id="portfolio">
       <div class="box">
         <div class="project-title">
           Project 1 - Personal Profile
@@ -333,12 +311,13 @@
             the latest tech.<br /><br />
           </p>
           <!-- ******  RESUME PDF GOES HERE -->
-          <a href="img/project-6.png" class="btn-resume" download>Résumé</a>
+          <a href="hoover-resume.pdf" class="btn-resume" download>Résumé</a>
         </div>
       </div>
     </section>
 
     <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-= EXPERIENCE =-=-=-=-=-=-=-=-=-=-=-=-= -->
+    <!-- This section needs jazzing up -->
     <section class="experience center bg-light">
       <div>
         <h3>
