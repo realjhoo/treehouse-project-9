@@ -103,16 +103,17 @@ button:focus {
 }
 
 /* =-=-=-=-=-=-=-=-=-=-= LINK BAR RULES =-=-=-=-=-=-=-=-=-= */
+.container {
+  margin: auto;
+  padding: 4rem 1rem;
+  max-width: 960px;
+  overflow: hidden;
+}
+
 .link-bar h3,
 .experience h3 {
   padding-top: 12px;
   font-family: cinzel;
-  font-weight: 700;
-}
-
-button > h3 {
-  color: var(--text-color);
-  font-size: 1.2rem;
   font-weight: 700;
 }
 
@@ -128,27 +129,15 @@ button > h3 {
   cursor: pointer;
 }
 
-.contact-icon {
-  font-size: 3rem;
-}
-
-.container {
-  margin: auto;
-  padding: 4rem 1rem;
-  max-width: 960px;
-  overflow: hidden;
-}
-
 .link-icon {
   width: 5rem;
 }
 
 .link-icon:hover ~ h3,
-.link-icon:hover,
 .link-item:hover,
 .link-bar h3:hover {
   transition: all 0.5s;
-  opacity: 0.3;
+  opacity: 0.4;
 }
 
 .link-items {
@@ -165,6 +154,15 @@ button > h3 {
 .bg-light {
   background-color: var(--text-color);
   color: var(--main-color);
+}
+
+.validate {
+  font-family: cinzel;
+  display: block;
+  font-size: 1.2rem;
+  color: var(--text-color);
+  font-weight: 700;
+  padding-top: 12px;
 }
 
 /* =-=-=-=-=-=-=-= PORTFOLIO RULES =-=-=-=-=-=-=-=-=-= */

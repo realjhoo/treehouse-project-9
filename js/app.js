@@ -1,6 +1,6 @@
 // Copyright (c) 2019 Jerry L Hoover
 // All rights reserved
-// javascriot for realjhoo
+// javascript for realjhoo
 
 function hamburger_listener() {
   document.addEventListener("click", event => {
